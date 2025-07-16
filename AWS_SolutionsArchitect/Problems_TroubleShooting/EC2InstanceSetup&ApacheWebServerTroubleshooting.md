@@ -73,7 +73,6 @@ echo "<h1>Hello World from $(hostname -f)</h1>" | sudo tee /var/www/html/index.h
 
 
 
-
 **Tested HTTP access in a browser to confirm the web page loaded successfully.**
 
 
