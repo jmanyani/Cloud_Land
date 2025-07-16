@@ -1,0 +1,102 @@
+CREATE AN EC2 INSTANCE WITH EC2 USER DATA TO HAVE A WEBSITE HANDS-ON
+
+
+
+EC2 >Instances >Launch an instance
+
+
+
+Name
+My First Instance
+--
+
+Amazon Machine Image (AMI)
+
+Amazon Linux 2023 kernel-6.1 AMI (select)
+--
+
+Instance type 
+t2.micro
+
+--
+
+Key pair (login)
+
+Create new key pair
+
+
+
+Key pair name
+EC2  Tutorial
+
+
+Key pair type
+RSA
+
+Private key file format
+.pem
+
+
+Create key pair
+
+---
+
+Network settings
+
+Allow HTTP traffic from the internet(select)
+
+---
+
+User data - optional 
+
+NOTE: Comments/Script used to at the First Launch of our EC2 Instance, Only the First Launch !
+
+
+CODE:
+#!/bin/bash
+# Use this for your user data (script from top to bottom)
+# install httpd (Linux 2 version)
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "<h1>Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
+
+
+---
+
+LAUNCH INSTANCE
+
+
+
+
+
+Note:
+WHEN WE STOP AN AND START AGAIN AN EC2 Instance, AWS May change its Public IPv4 addresss but not the Private one.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
